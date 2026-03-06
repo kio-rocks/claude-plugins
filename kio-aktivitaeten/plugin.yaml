@@ -1,0 +1,73 @@
+name: kio-aktivitaeten
+title: "KIO Aktivitäten-Plugin"
+description: >
+  Erfasse Team-Aktivitäten, analysiere Zeitverteilung und Energie,
+  und entwickle Schritt für Schritt konkrete Automatisierungen.
+  Von der ersten Inventur bis zum fertigen Baustein.
+version: "1.1.0"
+created: "2026-02-23"
+updated: "2026-03-06"
+
+type: cowork
+domain: aktivitaeten
+platform: desktop
+delivery_format: cowork-plugin
+
+skills:
+  - name: aktivitaeten-erfassen
+    output_type: json
+  - name: aktivitaeten-analyse
+    output_type: artifact
+  - name: prozess-beschreiben
+    output_type: text
+  - name: vorschlags-engine
+    output_type: artifact
+  - name: baustein-generator
+    output_type: artifact
+  - name: wochen-review
+    output_type: artifact
+
+commands:
+  - name: team-profil
+    description: "Team-Profil anlegen — Branche, Teamgröße und Arbeitsstil erfassen"
+  - name: inventur
+    description: "Aktivitäten-Inventur starten — 30-Minuten geführte Erfassung aller Team-Tätigkeiten"
+  - name: analyse
+    description: "Analyse-Dashboard — Zeitverteilung, Energielevel und Automatisierungspotenzial auf einen Blick"
+  - name: vorschlaege
+    description: "Automatisierungsvorschläge — Top 5 Verbesserungen mit Aufwand-Nutzen-Analyse"
+  - name: baustein
+    description: "Automatisierungs-Baustein generieren — fertige Anleitung mit Tools und Zeitersparnis"
+  - name: inventur-status
+    description: "Inventur-Fortschritt anzeigen — erfasste Aktivitäten, offene Bereiche, nächste Schritte"
+  - name: daten-löschen
+    description: "Lokale Daten löschen — Profil und Aktivitätsdaten DSGVO-konform entfernen"
+
+agents:
+  - name: inventur-coach
+    description: Dialoggeführte Aktivitäts-Erfassung in 4 Phasen
+
+shared:
+  - path: shared/datenmodell.md
+    used_by:
+      - aktivitaeten-erfassen
+      - aktivitaeten-analyse
+      - vorschlags-engine
+      - prozess-beschreiben
+      - wochen-review
+  - path: shared/csv-struktur.md
+    used_by:
+      - aktivitaeten-erfassen
+      - aktivitaeten-analyse
+      - prozess-beschreiben
+      - wochen-review
+  - path: shared/entscheidungsmatrix.md
+    used_by:
+      - vorschlags-engine
+      - baustein-generator
+
+relations:
+  evolved_from: "projekte/kio-aktivitaeten"
+
+source_doc: docs/product/sources/kio-aktivitaeten/mvp-claude-projekt.md
+status: published

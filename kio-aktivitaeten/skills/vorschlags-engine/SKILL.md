@@ -1,13 +1,23 @@
 ---
 name: vorschlags-engine
-description: Scannt alle erfassten Aktivitäten, matcht sie mit verfügbaren Automatisierungs-Patterns und gibt die Top-5 Vorschläge mit konkretem nächsten Schritt aus. Wird ausgelöst durch "Was kann ich automatisieren?", "Zeig mir Vorschläge", "Wo fange ich an?" oder "/vorschlaege". Scannt lokale Aktivitätsdaten und erstellt priorisierte Vorschläge.
+description: Dual-Mode Automatisierungs-Engine. BATCH-Modus scannt alle Aktivitäten und gibt Top-5 Vorschläge. EINZEL-Modus bewertet eine einzelne Aktivität auf Automatisierbarkeit mit Score und Delivery-Format. Wird ausgelöst durch "Was kann ich automatisieren?", "Zeig mir Vorschläge", "Wo fange ich an?", "/vorschlaege", "Kann man das automatisieren?", "Ist das machbar?", "Was kostet das ungefähr?" oder wenn eine spezifische Aktivität bewertet werden soll.
 ---
 
 # Vorschlags-Engine
 
-6-Schritt-Algorithmus: Alle Aktivitäten scannen, Patterns zuordnen, Systemanbindung prüfen, Impact-Effort priorisieren, Top-5 ausgeben. Immer mit konkretem nächsten Schritt.
+Dual-Mode: BATCH (alle Aktivitäten scannen → Top-5) oder EINZEL (eine Aktivität bewerten → Score + Delivery-Format). Immer mit konkretem nächsten Schritt.
 
 ## Modus-Erkennung
+
+**EINZEL-Modus** wenn:
+- User eine bestimmte Aktivität nennt ("Kann man [X] automatisieren?", "Bewerte [X]")
+- User nach Machbarkeit oder Kosten einer einzelnen Aktivität fragt
+- → Springe zu **Einzelbewertung**
+
+**BATCH-Modus** wenn:
+- User nach allgemeinen Vorschlägen fragt ("Was kann ich automatisieren?", "/vorschlaege")
+- Kein spezifischer Aktivitätsname genannt
+- → Springe zu **Batch-Algorithmus**
 
 ### STANDALONE
 
@@ -18,7 +28,61 @@ Falls keine Daten: "Bitte lade deine aktivitaeten.csv hoch oder starte zuerst di
 
 ---
 
-## Algorithmus
+## Einzelbewertung
+
+Bewertet EINE Aktivität: Automatisierbarkeits-Score, Delivery-Format, Aufwand, Voraussetzungen.
+
+### Schritt E1: Aktivität identifizieren
+
+- Aus Konversation: User hat Aktivitätsname oder -ID genannt
+- Aus `context/aktivitaeten.json`: Nach ID oder Name suchen
+- Wenn unklar: "Welche Aktivität soll ich bewerten?"
+
+### Schritt E2: Automatisierbarkeits-Score berechnen (1-10)
+
+| Faktor | Max. Punkte | Kriterien |
+|--------|-------------|-----------|
+| Wiederholbarkeit | 3 | 3=immer gleich, 2=meist gleich, 1=variabel, 0=jedes Mal anders |
+| Systemanbindung | 3 | 3=nur Google Workspace, 2=GW+1 extern, 1=extern mit API, 0=keine |
+| Datenstruktur | 2 | 2=strukturiert (Sheet), 1=halb-strukturiert, 0=Freitext/Papier |
+| Zeit-Impact | 2 | 2= >2h/Woche, 1=0.5-2h/Woche, 0= <0.5h/Woche |
+
+Score: 8-10=Hoch, 5-7=Mittel, 1-4=Gering.
+
+### Schritt E3: Delivery-Format bestimmen
+
+Nutze `references/matching-algorithmus.md` Schritt 3+4 und die Entscheidungsmatrix aus `shared/entscheidungsmatrix.md`.
+
+### Schritt E4: Bewertungs-Report ausgeben
+
+```
+# Automatisierungs-Bewertung: [Aktivitätsname]
+
+## Score: [X]/10 — [Hoch/Mittel/Gering]
+
+| Faktor | Punkte | Begründung |
+|--------|--------|------------|
+| Wiederholbarkeit | [0-3] | [Begründung] |
+| Systemanbindung | [0-3] | [Begründung] |
+| Datenstruktur | [0-2] | [Begründung] |
+| Zeit-Impact | [0-2] | [Begründung] |
+
+## Empfohlenes Format: [Format]
+
+**Zeitersparnis:** Aktuell [X] h/Woche → nach Automatisierung ~[X×0.3] h/Woche
+**Aufwand:** [Einmalig X Stunden]
+**Amortisation:** Nach [X] Wochen rentabel
+
+## Nächster Schritt
+[Konkreter Handlungsvorschlag: "Sage '/baustein [Name]' um den Baustein zu generieren"]
+```
+
+Bei Score < 4: Ehrlich kommunizieren dass Aufwand > Nutzen.
+Bei externen Systemen außerhalb Google Workspace: "Sprich mit deinem KIO-Berater".
+
+---
+
+## Batch-Algorithmus
 
 Führe alle 6 Schritte aus `references/matching-algorithmus.md` aus:
 
@@ -30,10 +94,10 @@ Berechne für jede Aktivität einen Kandidaten-Score:
 
 | Kriterium | Punkte |
 |-----------|--------|
-| Energie = Energiesauger | +3 |
-| Status = kein Prozess oder Prozess funktioniert nicht | +2 |
-| Status = weil es sonst niemanden gibt | +2 |
-| Frequenz = täglich oder wöchentlich | +2 |
+| Energie = `negativ` | +3 |
+| Status = `kein-prozess` oder `prozess-defekt` | +2 |
+| Status = `sonst-niemand` | +2 |
+| Frequenz = `täglich` oder `wöchentlich` | +2 |
 | Zeit >= 2 Stunden pro Woche | +1 |
 | Quadrant = Mag ich nicht / gut | +2 |
 
@@ -85,8 +149,8 @@ Schnell-Mapping:
 
 **Impact-Score (Summe):**
 - Stunden pro Woche gespart: >4h = 5, 2-4h = 4, 1-2h = 3, <1h = 1
-- Energie-Gewinn: Energiesauger = +2, Energiegeber = 0
-- Status-Verbesserung: Notlösung = +2, Kernrolle = 0
+- Energie-Gewinn: `negativ` = +2, `positiv` = 0
+- Status-Verbesserung: Notlösung (`sonst-niemand`/`kein-prozess`/`prozess-defekt`) = +2, `rolle` = 0
 
 **Effort-Score (Summe):**
 - Technische Komplexität: Einfach = 1, Mittel = 2, Komplex = 4

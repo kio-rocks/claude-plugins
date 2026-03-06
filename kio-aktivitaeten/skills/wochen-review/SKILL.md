@@ -25,7 +25,7 @@ Lese alle verfügbaren Daten:
 **Aus `context/aktivitaeten.json`:**
 - Anzahl erfasster Aktivitäten gesamt
 - Davon diese Woche neu hinzugefügt (Feld: erfasst_am, aktuelles Datum - 7 Tage)
-- Verteilung: Energiegeber vs. Energiesauger
+- Verteilung: Energie positiv vs. negativ
 - Verteilung: Kernrolle vs. Fremdarbeit
 
 **Aus `context/profil.json`:**
@@ -92,7 +92,7 @@ Wenn baustein vorhanden:
 | Metrik | Wert |
 |--------|------|
 | Aktivitäten im System | [Gesamt] |
-| davon Energiesauger | [X] ([%]) |
+| davon Energie negativ | [X] ([%]) |
 | davon Fremdarbeit | [X] ([%]) |
 | Automatisierungspotenzial | [X] Kandidaten |
 
@@ -101,7 +101,7 @@ Wenn baustein vorhanden:
 ## Highlights
 
 [1-2 Sätze was diese Woche besonders war, basierend auf den Daten.
-Beispiel: "Du hast 3 neue Aktivitäten erfasst, darunter 2 Energiesauger mit hohem Automatisierungspotenzial."]
+Beispiel: "Du hast 3 neue Aktivitäten erfasst, darunter 2 mit negativer Energie und hohem Automatisierungspotenzial."]
 
 ---
 

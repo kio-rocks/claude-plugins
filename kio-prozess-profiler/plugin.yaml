@@ -1,0 +1,54 @@
+name: kio-prozess-profiler
+title: "KIO Prozess-Profiler"
+description: >
+  Extrahiere die versteckten Regeln, Schwellwerte und Ausnahmen aus
+  Arbeitsprozessen durch strukturierte Tiefeninterviews. Von der
+  Prozessbeschreibung bis zum dokumentierten Regelwerk.
+version: "1.1.0"
+created: "2026-03-05"
+updated: "2026-03-06"
+
+type: cowork
+domain: prozess-profiling
+platform: desktop
+delivery_format: cowork-plugin
+
+skills:
+  - name: prozess-analyse
+    output_type: json
+  - name: regel-extraktion
+    output_type: json
+  - name: quality-check
+    output_type: text
+  - name: regelwerk-export
+    output_type: artifact
+
+commands:
+  - name: profil-anlegen
+    description: "Profil anlegen — Mandant und Prozessbereich erfassen für die Analyse"
+  - name: regelwerk-extraktion
+    description: "Regelwerk extrahieren — Prozessregeln systematisch aus Mandantenwissen ableiten"
+  - name: profiling-status
+    description: "Profiling-Fortschritt anzeigen — Status aller Extraktionsschritte auf einen Blick"
+  - name: regelwerk-export
+    description: "Regelwerk exportieren — fertige Prozessregeln als strukturiertes Markdown"
+  - name: daten-löschen
+    description: "Lokale Plugin-Daten löschen — Profil und Prozessdaten DSGVO-konform entfernen"
+
+agents:
+  - name: profiler-coach
+    description: Haupt-Interview-Agent für strukturierte Tiefenextraktion
+
+shared:
+  - path: skills/regel-extraktion/references/examples.md
+    used_by:
+      - prozess-analyse
+  - path: skills/regelwerk-export/references/output-template.md
+    used_by:
+      - regel-extraktion
+      - quality-check
+
+relations:
+  evolved_from: "docs/product/sources/self-service-automatisierung"
+
+status: published

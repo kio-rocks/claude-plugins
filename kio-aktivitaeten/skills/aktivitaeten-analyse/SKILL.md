@@ -47,7 +47,7 @@ Erstelle ein **React-Artifact** mit folgendem Aufbau:
 
 **A) 80/20 Zeitverteilung:**
 - Tabelle: Alle Aktivitäten sortiert nach Wochenstunden (absteigend)
-- Spalten: Aktivität, Wochenstunden, kumulierter %-Anteil, Wert
+- Spalten: Name, Wochenstunden, kumulierter %-Anteil, Wert
 - Markiere die Aktivitäten die zusammen 80% der Zeit ausmachen mit einer Hintergrundfarbe
 - Zeige: "[X] von [Y] Aktivitäten verbrauchen 80% deiner Zeit"
 - Cross-Check: Markiere Zeitfresser mit niedrigem Wert rot
@@ -63,36 +63,36 @@ Erstelle ein **React-Artifact** mit folgendem Aufbau:
 - Unter jedem Feld eine konkrete Empfehlung
 
 **C) Energie-Bilanz:**
-- Balkendiagramm: Gesamte Wochenstunden aufgeteilt in Energiegeber (grün) vs. Energiesauger (rot)
+- Balkendiagramm: Gesamte Wochenstunden aufgeteilt in Energie positiv (grün) vs. Energie negativ (rot)
 - Prozentuale Verteilung
-- Wenn >50% der Zeit in Energiesauger fließt: Alarmsignal mit rotem Banner "Achtung: Mehr als die Hälfte deiner Zeit fließt in Aktivitäten die dir Energie rauben"
+- Wenn >50% der Zeit in Energie=negativ fließt: Alarmsignal mit rotem Banner "Achtung: Mehr als die Hälfte deiner Zeit fließt in Aktivitäten die dir Energie rauben"
 
 **D) Rollen-Fit:**
 - Horizontales Balkendiagramm: Wochenstunden pro Status-Kategorie
-- Farben: "gehört zu meiner Rolle" = grün, alle anderen = orange/rot Abstufungen
+- Farben: Status `rolle` = grün, alle anderen = orange/rot Abstufungen
 - Zusammenfassung: "[X]% Kernarbeit vs. [Y]% Fremdarbeit"
-- Kernarbeit = "Mache ich, gehört zu meiner Rolle"
+- Kernarbeit = Status `rolle`
 - Fremdarbeit = alle anderen 5 Status-Kategorien zusammen
 
 **E) Top Automatisierungs-Kandidaten:**
-- Tabelle der Aktivitäten die ALLE drei Kriterien erfüllen: Energiesauger UND niedriger Wert UND hohe Frequenz (mindestens wöchentlich)
-- Falls weniger als 3 Treffer: Lockere auf zwei Kriterien (Energiesauger UND hohe Frequenz)
+- Tabelle der Aktivitäten die ALLE drei Kriterien erfüllen: Energie=negativ UND niedriger Wert UND hohe Frequenz (mindestens wöchentlich)
+- Falls weniger als 3 Treffer: Lockere auf zwei Kriterien (Energie=negativ UND hohe Frequenz)
 - Sortiert nach Wochenstunden absteigend
-- Spalten: Aktivität, Wochenstunden, geschätztes Zeitersparnis-Potenzial (= Wochenstunden × 0.7)
+- Spalten: Name, Wochenstunden, geschätztes Zeitersparnis-Potenzial (= Wochenstunden × 0.7)
 - Wenn keine Kandidaten: "Keine offensichtlichen Automatisierungs-Kandidaten gefunden"
 
 **F) Prozess-Probleme:**
 - Zwei Bereiche:
-  - "Strukturlücken" — Aktivitäten mit Status "weil es keinen Prozess gibt", sortiert nach Wochenstunden
-  - "Kaputte Prozesse" — Aktivitäten mit Status "weil der Prozess nicht funktioniert", sortiert nach Wochenstunden
+  - "Strukturlücken" — Aktivitäten mit Status `kein-prozess`, sortiert nach Wochenstunden
+  - "Kaputte Prozesse" — Aktivitäten mit Status `prozess-defekt`, sortiert nach Wochenstunden
 - Gesamtzeit in beiden Kategorien als Summe
 - Wenn Gesamtzeit > 0: "Du verbringst [X] Stunden pro Woche mit Aktivitäten, die durch bessere Prozesse gelöst werden könnten"
 - Wenn keine Treffer: Sektion ausblenden
 
 **G) Blinde Flecken:**
 - Zwei Bereiche:
-  - "Ungeklärte Verantwortlichkeit" — Aktivitäten mit Status "weil es sonst niemanden gibt" UND Energie = "Energiesauger"
-  - "Bekannte Probleme ohne Lösung" — Aktivitäten mit Status "andere Lösung ist erforderlich" UND Wochenstunden > Median
+  - "Ungeklärte Verantwortlichkeit" — Aktivitäten mit Status `sonst-niemand` UND Energie = `negativ`
+  - "Bekannte Probleme ohne Lösung" — Aktivitäten mit Status `andere-lösung` UND Wochenstunden > Median
 - Wenn keine Treffer: Sektion ausblenden
 
 **Styling:** Tailwind CSS. Farbschema: Grün für positiv/schützenswert, Rot für Alarm/eliminieren, Blau für Hebel/Potential, Grau für Noise/unwichtig. Klare Überschriften pro Sektion mit Trennlinien.

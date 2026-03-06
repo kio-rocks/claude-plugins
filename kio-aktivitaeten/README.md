@@ -31,8 +31,7 @@ Inventur → Analyse → Vorschläge → Bausteine
 | `aktivitaeten-erfassen` | Einzelne Aktivität im Dialog aufnehmen | "Ich mache...", "Neue Aktivität" |
 | `aktivitaeten-analyse` | 7-Dimensionen-Dashboard aus CSV-Daten | "Analysiere meine Aktivitäten" |
 | `prozess-beschreiben` | Prozess einer Aktivität strukturieren | "Wie läuft das ab?", "Beschreib den Prozess" |
-| `automatisierungs-bewertung` | Automatisierbarkeit einer Aktivität bewerten | "Kann man das automatisieren?" |
-| `vorschlags-engine` | Top-Automatisierungsvorschläge aus Inventur | "Was kann ich automatisieren?" |
+| `vorschlags-engine` | Dual-Mode: Einzelbewertung oder Top-5 Batch-Vorschläge | "Kann man das automatisieren?", "Was kann ich automatisieren?" |
 | `baustein-generator` | Fertigen Baustein in passendem Format erstellen | "Bau mir das", "Erstelle den Baustein" |
 | `wochen-review` | Wöchentlicher Fortschrittsbericht | "Wie läuft's?", "Wochen-Update" |
 
@@ -69,10 +68,6 @@ Basierend auf der Analyse: Top 5 konkrete Automatisierungsvorschläge mit Aufwan
 /baustein Vorschlag-ID
 ```
 Generiert eine fertige Schritt-für-Schritt-Anleitung mit Tool-Empfehlungen und erwarteter Zeitersparnis.
-
-## Architektur-Hinweis
-
-Skill:Command Ratio ist aktuell 7:7 (1:1). Einige Skills (z.B. `automatisierungs-bewertung`, `vorschlags-engine`) könnten als interne Bausteine konsolidiert werden, die von Commands orchestriert statt 1:1 gemappt werden. Dies ist eine zukünftige Optimierung.
 
 ## Setup
 

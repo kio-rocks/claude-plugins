@@ -30,10 +30,10 @@ Schritt 6: Top-5 formulieren
 
 | Kriterium | Gewichtung | Erklärung |
 |---|---|---|
-| Energie = "Energiesauger" | +3 Punkte | Kandidat für Automatisierung (lohnt sich subjektiv) |
-| Status = "kein Prozess" oder "Prozess funktioniert nicht" | +2 Punkte | Strukturproblem, Automatisierung hilft |
-| Status = "weil es sonst niemanden gibt" | +2 Punkte | Ressourcenproblem, Automatisierung entlastet |
-| Frequenz = "pro Tag" oder "pro Woche" | +2 Punkte | Häufig = hohe Zeitersparnis durch Automatisierung |
+| Energie = `negativ` | +3 Punkte | Kandidat für Automatisierung (lohnt sich subjektiv) |
+| Status = `kein-prozess` oder `prozess-defekt` | +2 Punkte | Strukturproblem, Automatisierung hilft |
+| Status = `sonst-niemand` | +2 Punkte | Ressourcenproblem, Automatisierung entlastet |
+| Frequenz = `täglich` oder `wöchentlich` | +2 Punkte | Häufig = hohe Zeitersparnis durch Automatisierung |
 | Zeit >= 2 Stunden pro Woche | +1 Punkt | Signifikanter Zeitaufwand |
 | Quadrant = "Mag ich nicht / gut" | +2 Punkte | Klassischer Automatisierungs-Kandidat |
 
@@ -48,7 +48,7 @@ Schritt 6: Top-5 formulieren
 **Nicht automatisierbar (herausfiltern):**
 - Reine Führungs- und Beziehungsarbeit ("Mitarbeiter-Gespräche führen")
 - Kreative Kernarbeit die persönliche Urteilskraft erfordert
-- Einmalige Sonderaufgaben (Frequenz "pro Jahr" mit niedrigem Aufwand)
+- Einmalige Sonderaufgaben (Frequenz `jährlich` mit niedrigem Aufwand)
 
 **Gut automatisierbar (behalten):**
 - Wiederkehrende Datentransfers (lesen, transformieren, schreiben)
@@ -106,8 +106,8 @@ Verwende `references/pattern-katalog.md` für vollständige Pattern-Beschreibung
 | Faktor | Score |
 |---|---|
 | Stunden pro Woche gespart (>4h = 5, 2-4h = 4, 1-2h = 3, <1h = 1) | 1-5 |
-| Energie-Gewinn (Sauger = +2, Geber = 0) | 0-2 |
-| Status-Verbesserung (Notlösung = +2, Rolle = 0) | 0-2 |
+| Energie-Gewinn (`negativ` = +2, `positiv` = 0) | 0-2 |
+| Status-Verbesserung (Notlösung = +2, `rolle` = 0) | 0-2 |
 
 **Effort-Score (1-5):**
 

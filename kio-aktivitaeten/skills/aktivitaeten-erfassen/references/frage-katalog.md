@@ -9,7 +9,7 @@ Strukturierte Fragen pro Aktivität für die Dialog-basierte Erfassung.
 **Frage:** "Wie heißt diese Aktivität? (kurze Bezeichnung, z.B. 'Kunden-E-Mails beantworten')"
 
 - Freitext, max. 60 Zeichen
-- Soll als Spalte `Aktivität` in die CSV
+- Soll als Feld `name` in die JSON-Datei
 - Falls unklar: "Beschreib mir kurz was du da machst"
 
 ---
@@ -31,13 +31,13 @@ Strukturierte Fragen pro Aktivität für die Dialog-basierte Erfassung.
 
 ---
 
-### 3. Energie — Energiegeber oder Energiesauger?
+### 3. Energie — Positiv oder Negativ?
 
 **Frage:** "Gibt dir das Energie oder kostet es dich Energie?"
 
 **Antwort-Optionen:**
-- **"Energiegeber"** — Du machst es gerne, es macht dir Spaß oder gibt dir Befriedigung
-- **"Energiesauger"** — Es kostet dich Kraft, du machst es pflichtbewusst aber nicht gerne
+- **"positiv"** — Du machst es gerne, es macht dir Spaß oder gibt dir Befriedigung
+- **"negativ"** — Es kostet dich Kraft, du machst es pflichtbewusst aber nicht gerne
 
 **Nachfrage wenn unklar:** "Wenn du morgens aufwachst und weißt, du musst das heute machen — freust du dich oder nicht?"
 
@@ -101,7 +101,7 @@ Optimale Fragenreihenfolge für natürlichen Gesprächsfluss:
 ```
 1. Aktivität (Name)
 2. Status (Warum machst du das?)
-3. Energie (Energiegeber/Sauger)
+3. Energie (positiv/negativ)
 4. Frequenz (Wie oft?)
 5. Zeit (Wie lange?)
 6. Quadrant (Können & Wollen)
@@ -117,5 +117,5 @@ Bei schneller Erfassung reichen oft Kurzantworten:
 
 ## Aktivitäts-ID
 
-Automatisch vergeben: `{user-kürzel}-{laufende-nummer}`, z.B. `sk-001`, `sk-002`.
-User-Kürzel aus `context/profil.json` lesen oder beim ersten Mal nachfragen.
+Universelles Format: `akt-NNN`, z.B. `akt-001`, `akt-002` (hochzählend).
+Das `wer`-Feld trackt den User, das Kürzel im ID ist nicht nötig.

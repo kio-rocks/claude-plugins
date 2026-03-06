@@ -50,9 +50,10 @@ Du nennst Aktivitäten in natürlicher Sprache, der Agent hört zu und stellt ge
 
 ### Phase 3: Strukturierung (8 Min)
 Für jede erfasste Aktivität fragt der Agent kurz nach:
-- **Status**: Läuft gut / kostet Energie / macht Spaß
-- **Zeit**: Wie viele Minuten/Stunden pro Woche?
-- **Frequenz**: Täglich / wöchentlich / monatlich / selten
+- **Status**: Gehört zu deiner Rolle? Oder ein anderer Grund? (6 Kategorien)
+- **Energie**: Gibt Energie oder kostet Energie?
+- **Zeit**: Wie viele Stunden pro Frequenz-Einheit?
+- **Frequenz**: Täglich / wöchentlich / monatlich / quartalsweise / jährlich
 - **Wert**: Hoch (direkt nützlich) / Mittel / Niedrig (Pflicht aber wenig Mehrwert)
 
 ### Phase 4: Zusammenfassung (5 Min)
@@ -69,14 +70,16 @@ Nach der Session schreibt der inventur-coach `context/aktivitaeten.json`:
   {
     "id": "akt-001",
     "name": "Wochenbericht erstellen",
-    "status": "kostet-energie",
+    "wer": "Max",
+    "status": "rolle",
     "energie": "negativ",
-    "zeit_minuten": 90,
+    "stunden": 1.5,
     "frequenz": "wöchentlich",
     "wert": "mittel",
     "quadrant": "automatisieren",
     "systeme": ["Excel", "Outlook"],
-    "notizen": "Daten aus 3 Quellen zusammensuchen, dann formatieren"
+    "notizen": "Daten aus 3 Quellen zusammensuchen, dann formatieren",
+    "erfasst_am": "2026-03-06"
   }
 ]
 ```

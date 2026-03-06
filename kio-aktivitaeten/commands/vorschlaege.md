@@ -133,11 +133,13 @@ Nächster Schritt: /baustein [Name] um einen Vorschlag umzusetzen
 
 ---
 
-## Gezielter Vorschlag
+## Einzelbewertung
 
-Mit `/vorschlaege Wochenbericht` bekomme ich:
-- Tiefere Analyse dieser einen Aktivität
-- Alle möglichen Automatisierungsansätze
-- Konkrete Implementierungsoptionen mit Pros/Cons
+Mit `/vorschlaege Wochenbericht` bekomme ich eine Einzelbewertung:
+- Automatisierbarkeits-Score (1-10) mit 4-Faktoren-Analyse
+- Empfohlenes Delivery-Format (Apps Script, Claude Skill, Artifact, Konfiguration)
+- Zeitersparnis-Potenzial und Amortisationsrechnung
 - Direkte Weiterleitung zu `/baustein`
+
+Der Skill erkennt automatisch ob du eine einzelne Aktivität oder alle bewerten möchtest.
 

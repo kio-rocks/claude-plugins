@@ -28,7 +28,8 @@ Falls `context/profil.json` nicht existiert oder kein Kürzel enthält:
 - Generiere Kürzel aus den ersten zwei Buchstaben des Vornamens + laufende Nummer: `sk-001`
 
 Bestimme die nächste Aktivitäts-ID:
-- Prüfe `context/aktivitaeten.json`, zähle vorhandene IDs für diesen User
+- Prüfe `context/aktivitaeten.json`, zähle vorhandene IDs
+- ID-Format: `akt-NNN` (universal, hochzählend), siehe `shared/datenmodell.md`
 
 ## Schritt 2: Aktivität im Dialog erfassen
 
@@ -51,7 +52,7 @@ Optionen anbieten wenn der User zögert:
 6. Prozess funktioniert nicht
 
 **Frage 3 — Energie:**
-"Gibt dir das Energie oder kostet es dich Energie?"
+"Gibt dir das Energie oder kostet es dich Energie?" → `positiv` oder `negativ`
 
 **Frage 4 — Frequenz:**
 "Wie oft machst du das? (täglich / wöchentlich / monatlich / quartalsweise / jährlich)"
@@ -82,11 +83,11 @@ Zeige die erfasste Aktivität zur Bestätigung:
 ```
 Ich trage folgende Aktivität ein:
 
-ID: [kürzel]-[nummer]
-Aktivität: [Name]
+ID: akt-[nummer]
+Name: [Name]
 Wer: [Vorname]
 Status: [Status]
-Energie: [Energiegeber/Energiesauger]
+Energie: [positiv/negativ]
 Frequenz: [Frequenz]
 Zeit: [Stunden] h / [Frequenz]
 Quadrant: [Quadrant]
@@ -97,17 +98,19 @@ Soll ich das so speichern?
 
 ### STANDALONE — In JSON schreiben:
 
+Felder und Enum-Werte gemäß `shared/datenmodell.md`.
+
 ```json
 {
-  "id": "[kürzel]-[nummer]",
-  "aktivitaet": "[Name]",
+  "id": "akt-[nummer]",
+  "name": "[Name]",
   "wer": "[Vorname]",
-  "status": "[Status]",
-  "energie": "[Energiegeber|Energiesauger]",
+  "status": "[rolle|sonst-niemand|andere-lösung|team|kein-prozess|prozess-defekt]",
+  "energie": "[positiv|negativ]",
   "frequenz": "[täglich|wöchentlich|monatlich|quartalsweise|jährlich]",
   "stunden": [Zahl],
   "quadrant": "[Quadrant]",
-  "wert": "[Wert oder null]",
+  "wert": "[hoch|mittel|niedrig|null]",
   "erfasst_am": "[ISO-Datum]"
 }
 ```

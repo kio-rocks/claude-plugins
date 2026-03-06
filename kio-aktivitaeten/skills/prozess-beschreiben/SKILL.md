@@ -20,7 +20,7 @@ Output: Markdown-Block in der Konversation
 
 ## Schritt 1: Aktivität identifizieren
 
-1. Identifiziere die genannte Aktivität (Spalte `Aktivität`) — siehe `references/csv-struktur.md`
+1. Identifiziere die genannte Aktivität (Feld `name`) — siehe `references/csv-struktur.md`
 2. Wenn die Aktivität nicht eindeutig ist, zeige mögliche Treffer und frage: "Welche Aktivität meinst du genau?"
 3. Wenn keine Aktivität gefunden wird, frage: "Welche Aktivität möchtest du beschreiben?"
 
