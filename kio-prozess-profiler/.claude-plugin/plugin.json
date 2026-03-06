@@ -1,0 +1,6 @@
+{
+  "name": "kio-prozess-profiler",
+  "version": "1.1.0",
+  "description": "Extrahiere die versteckten Regeln, Schwellwerte und Ausnahmen aus Arbeitsprozessen durch strukturierte Tiefeninterviews. Von der Prozessbeschreibung bis zum dokumentierten Regelwerk.",
+  "author": { "name": "KIO rocks" }
+}
