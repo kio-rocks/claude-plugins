@@ -1,6 +1,6 @@
 # KIO Claude Plugins
 
-Die KIO Plugins bringen das KIO Operating System als KI-Agenten direkt in deinen Arbeitsalltag.
+Die KIO Claude Plugins bringen das KIO Operating System mit Hilfe von KI-Agenten direkt in deinen Arbeitsalltag.
 
 ## Was ist KIO?
 
