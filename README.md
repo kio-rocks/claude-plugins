@@ -1,6 +1,6 @@
-# KIO Plugins
+# KIO Claude Plugins
 
-KI-gestützte Werkzeuge, die Führungsteams helfen, Klarheit zu schaffen, Strukturen aufzubauen und operative Exzellenz zu erreichen.
+KIO Claude Plugins sind KI-gestützte Werkzeuge für Claude Desktop, die Führungsteams helfen, Klarheit zu schaffen, Strukturen aufzubauen und operative Exzellenz zu erreichen.
 
 ## Was ist KIO?
 
