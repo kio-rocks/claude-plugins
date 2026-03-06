@@ -1,42 +1,20 @@
-# KIO Claude Plugins
+# KIO Plugins
 
-KIO Claude Plugins sind KI-gestützte Werkzeuge für Claude Desktop, die Führungsteams helfen, Klarheit zu schaffen, Strukturen aufzubauen und operative Exzellenz zu erreichen.
+KIO ist das Operating System für Unternehmensführung — mit KI.
 
-## Was ist KIO?
+Es gibt deinem Führungsteam ein erprobtes System aus Modell, Werkzeugen und Prozess für Klarheit, Fokus und Umsetzungskraft. Die KIO Plugins bringen dieses System als KI-Agenten direkt in deinen Arbeitsalltag.
 
-KIO ist ein KI Operating System für Unternehmer und ihre Führungsteams. Es verbindet ein bewährtes Framework für Unternehmensführung mit KI-Agents, die Teams beim Denken, Planen und Umsetzen unterstützen.
-
-Diese Plugins sind Teil des KIO-Ökosystems. Jedes Plugin adressiert eine konkrete Herausforderung, der Führungsteams im Alltag begegnen — von "Wo geht unsere Zeit eigentlich hin?" bis "Welche Regeln stecken in unseren Köpfen, aber nirgendwo auf Papier?"
-
-Die Plugins funktionieren eigenständig in Claude Desktop. Für das volle KIO-Erlebnis mit KIO Buddy und strategischer Begleitung: [kio.rocks](https://kio.rocks)
-
-## Plugins
-
-KIO Plugins sind entlang der 6 Schlüsselkomponenten des KIO Modell organisiert. Jede Komponente adressiert einen Aspekt der Unternehmensführung — und jedes Plugin hilft, diesen Aspekt konkret umzusetzen.
-
-| Komponente | Plugin | Was es löst |
-|------------|--------|-------------|
-| **Vision** | _In Entwicklung_ | — |
-| **People** | [KIO Aktivitäten](#kio-aktivitäten) | Verstehen, wo die Zeit des Teams wirklich hingeht |
-| **People** | [KIO Prozess-Profiler](#kio-prozess-profiler) | Versteckte Regeln und Expertenwissen sichtbar machen |
-| **Strategy** | _In Entwicklung_ | — |
-| **Data** | _In Entwicklung_ | — |
-| **Process** | _In Entwicklung_ | — |
-| **Execution** | _In Entwicklung_ | — |
+## Die Plugins
 
 ### KIO Aktivitäten
 
-Wo verbringt dein Team die meiste Zeit? Was kostet Energie? Was könnte automatisiert werden? Dieses Plugin begleitet dich von der ersten Bestandsaufnahme bis zum fertigen Automatisierungs-Baustein.
-
-**So funktioniert es:** In einer geführten 30-Minuten-Session erfasst du die Aktivitäten deines Teams. Das Plugin analysiert Zeitverteilung, Energielevel und Automatisierungspotenzial und generiert konkrete, umsetzbare Verbesserungsvorschläge.
+In 30 Minuten weißt du, wo dein Team seine Zeit verbringt. Energieverluste und Automatisierungsmöglichkeiten werden sichtbar — mit konkreten Verbesserungsvorschlägen.
 
 **Commands:** `/team-profil` · `/inventur` · `/analyse` · `/vorschläge` · `/baustein` · `/inventur-status` · `/daten-löschen`
 
 ### KIO Prozess-Profiler
 
-Jeder Mitarbeiter hat Expertenwissen, das nirgendwo dokumentiert ist: "Ab 36 Stunden wird es kritisch", "Bei Feiertagen mache ich das anders". Dieses Plugin macht dieses Wissen sichtbar.
-
-**So funktioniert es:** Du beschreibst einen Prozess in deinen eigenen Worten. Das Plugin identifiziert die einzelnen Aktivitäten und stellt gezielte Fragen zu Triggern, Schritten, Systemen, Regeln und Ausnahmen. Am Ende hast du ein strukturiertes Regelwerk.
+Macht implizites Wissen explizit. Prozessschritte, Trigger, Regeln und Ausnahmefälle — dokumentiert durch gezielte Fragen. Am Ende hast du ein strukturiertes Regelwerk statt Wissen, das nur in Köpfen existiert.
 
 **Commands:** `/profil-anlegen` · `/regelwerk-extraktion` · `/profiling-status` · `/regelwerk-export` · `/daten-löschen`
 
@@ -52,7 +30,7 @@ Jeder Mitarbeiter hat Expertenwissen, das nirgendwo dokumentiert ist: "Ab 36 Stu
 /plugin install kio-aktivitaeten
 ```
 
-### Manuell (Claude Desktop)
+### Manuell
 
 Den gewünschten Plugin-Ordner (z.B. `kio-aktivitaeten/`) als Claude Desktop Projekt öffnen.
 
@@ -88,7 +66,7 @@ KIO Plugins sind nach den 6 Schlüsselkomponenten des KIO Modell organisiert: Vi
 | People | `kio-prozess-profiler` | stable | Implizites Prozesswissen explizit machen |
 | _weitere_ | _tbd_ | planned | Plugins für alle 6 Komponenten in Entwicklung |
 
-### Ökosystem-Einordnung
+### Einordnung im KIO OS
 
 ```
 KIO Operating System
@@ -106,7 +84,6 @@ KIO Operating System
 
 - "Wir wissen nicht, wo unsere Zeit hingeht" → `kio-aktivitaeten`
 - "Wichtiges Wissen steckt nur in den Köpfen einzelner Leute" → `kio-prozess-profiler`
-- "Wir brauchen bessere Quartalsziele" → in Entwicklung
 
 ## Support
 
