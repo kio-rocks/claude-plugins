@@ -1,8 +1,18 @@
 # KIO Claude Plugins
 
-KIO ist das Operating System für Unternehmensführung — mit KI.
+Die KIO Plugins bringen das KIO Operating System als KI-Agenten direkt in deinen Arbeitsalltag.
 
-Es gibt deinem Führungsteam ein erprobtes System aus Modell, Werkzeugen und Prozess für Klarheit, Fokus und Umsetzungskraft. Die KIO Plugins bringen dieses System als KI-Agenten direkt in deinen Arbeitsalltag.
+## Was ist KIO?
+
+KIO ist das KI Operating System für Führungsteams. Es kombiniert drei Elemente zu einem einzigartigen System:
+
+1. **KIO Modell** — 6 Schlüsselkomponenten der Unternehmensführung (Vision, People, Strategy, Data, Process, Execution)
+2. **KIO Toolbox** — 20 konkrete Werkzeuge für den Führungsalltag
+3. **KIO Prozess** — Implementierungsmethodik in 3 Phasen
+
+Das Ergebnis: Klarheit, Fokus und Umsetzungskraft für dein Führungsteam — mit KI als integralem Bestandteil.
+
+Mehr erfahren: [kio.rocks](https://kio.rocks)
 
 ## Die Plugins
 
