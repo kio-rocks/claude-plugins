@@ -1,4 +1,4 @@
-# KIO Plugins
+# KIO Claude Plugins
 
 KIO ist das Operating System für Unternehmensführung — mit KI.
 
