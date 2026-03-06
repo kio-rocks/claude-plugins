@@ -6,7 +6,7 @@
   },
   "plugins": [
     {
-      "name": "kio-aktivitaeten",
+      "name": "KIO-Aktivitaeten",
       "source": "./kio-aktivitaeten",
       "description": "Erfasse Team-Aktivitäten und entwickle konkrete Automatisierungen",
       "author": {
@@ -14,7 +14,7 @@
       }
     },
     {
-      "name": "kio-prozess-profiler",
+      "name": "KIO-Prozess-Profiler",
       "source": "./kio-prozess-profiler",
       "description": "Extrahiere versteckte Prozessregeln durch strukturierte Interviews",
       "author": {
