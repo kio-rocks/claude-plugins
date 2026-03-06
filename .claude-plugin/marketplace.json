@@ -1,18 +1,25 @@
 {
-  "name": "kio-automation",
+  "$schema": "https://cdn.jsdelivr.net/npm/@anthropic-ai/claude-code@latest/config-schemas/marketplace.schema.json",
+  "name": "kio-rocks",
   "owner": {
-    "name": "KIO rocks"
+    "name": "kio.rocks",
+    "email": "admin@kio.rocks"
+  },
+  "metadata": {
+    "version": "1.2.0"
   },
   "plugins": [
     {
       "name": "kio-aktivitaeten",
       "source": "./kio-aktivitaeten",
-      "description": "Erfasse Team-Aktivitäten und entwickle konkrete Automatisierungen"
+      "description": "Erfasse Team-Aktivitäten und entwickle konkrete Automatisierungen",
+      "author": "kio.rocks"
     },
     {
       "name": "kio-prozess-profiler",
       "source": "./kio-prozess-profiler",
-      "description": "Extrahiere versteckte Prozessregeln durch strukturierte Interviews"
+      "description": "Extrahiere versteckte Prozessregeln durch strukturierte Interviews",
+      "author": "kio.rocks"
     }
   ]
 }
