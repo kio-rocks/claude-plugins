@@ -97,7 +97,7 @@ KIO Operating System
 
 ## Support
 
-- **E-Mail:** hello@kio.rocks
+- **E-Mail:** admin@kio.rocks
 - **Website:** [kio.rocks](https://kio.rocks)
 
 ## Lizenz
